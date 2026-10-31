@@ -946,8 +946,8 @@ def make_anim(lines, note, path, frames=LOOP):
     wav = path.with_suffix(".wav")
     write_wav(wav, soundtrack(frames, lines))
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
-           "-r", str(FPS), "-i", "-", "-i", str(wav), "-c:v", "libx264", "-preset", "slow", "-crf", "15",
-           "-pix_fmt", "yuv420p", "-tune", "grain", "-c:a", "aac", "-b:a", "192k", "-shortest",
+           "-r", str(FPS), "-i", "-", "-i", str(wav), "-c:v", "libx264", "-preset", "slow", "-crf", "21",
+           "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest",
            "-movflags", "+faststart", str(path)]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     end = camera(to_u8(render(state_at(frames - 7, lines), lines, note)), state_at(frames - 7, lines))
@@ -1040,7 +1040,7 @@ def treat(src, out_path, glitches):
                            "-pix_fmt", "rgb24", "-"], stdout=subprocess.PIPE)
     wr = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
                            "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", str(src), "-map", "0:v",
-                           "-map", "1:a?", "-c:v", "libx264", "-preset", "slow", "-crf", "16", "-tune", "grain",
+                           "-map", "1:a?", "-c:v", "libx264", "-preset", "slow", "-crf", "21",
                            "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest",
                            "-movflags", "+faststart", str(out_path)], stdin=subprocess.PIPE)
     gframes = {}
