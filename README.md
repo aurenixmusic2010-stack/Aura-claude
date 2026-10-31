@@ -54,6 +54,7 @@ production/
   07-packaging.md      titles, thumbnail, description, chapters
 tools/
   build_prompts.py     expands 04-prompts.md into 81 ready-to-submit JSON payloads
+style/misfeed/         MISFEED: signature glitch-print style for Shorts (see its README)
 ```
 
 ## Rendering the prompt payloads
