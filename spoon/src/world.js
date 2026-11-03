@@ -75,6 +75,7 @@ export function buildWorld(renderer, camera) {
     w.stars.mat.uniforms.uOpacity.value = 1;
     w.dust.mat.uniforms.uOpacity.value = 1;
     w.dust.mat.uniforms.uSize.value = 1;
+    w.ns.trailSpread = 0;
     w.ns.setBeams(0);
     w.ns.magnetic.rotation.z = 0.5;
     w.ns.fieldMat.opacity = 0.5;

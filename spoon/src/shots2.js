@@ -484,6 +484,7 @@ export function shot5(t, lt, w) {
   ns.root.scale.setScalar(nsScale);
   ns.magnetic.rotation.z = 1.15;
   const phi = spinAngle(lt);
+  ns.trailSpread = 0.058;
   ns.update(t, phi, 1.15);
   ns.spikes.material.opacity *= 0.35;
   ns.spikes2.material.opacity *= 0.35;

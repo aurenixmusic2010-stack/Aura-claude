@@ -123,16 +123,44 @@ export class NeutronStar {
       this.magnetic.add(b);
       this.beams.push(b);
     }
+    // motion smear: fading copies of the beams trailing the sweep, so a fast pass
+    // reads as a streak across frames instead of a one-frame flash
+    this.trails = [];
+    for (let k = 1; k <= 5; k++) {
+      const tg = new THREE.Group();
+      const tm = new THREE.Group();
+      tg.add(tm);
+      const mat = this.beamMat.clone();
+      mat.uniforms = { uTime: this.beamMat.uniforms.uTime, uIntensity: { value: 0 }, uColor: this.beamMat.uniforms.uColor };
+      for (const b of this.beams) {
+        const c = new THREE.Mesh(b.geometry, mat);
+        c.rotation.copy(b.rotation);
+        c.renderOrder = 9;
+        tm.add(c);
+      }
+      this.spinAxis.add(tg);
+      this.trails.push({ g: tg, m: tm, mat, k });
+    }
+    this.trailSpread = 0;
     this.setBeams(0);
   }
   setBeams(v) {
     this.beamMat.uniforms.uIntensity.value = v;
     for (const b of this.beams) b.visible = v > 0.001;
+    for (const tr of this.trails || []) {
+      tr.mat.uniforms.uIntensity.value = v * 0.62 * Math.pow(0.72, tr.k - 1);
+      tr.g.visible = v > 0.001 && this.trailSpread > 0;
+    }
   }
   update(t, spinAngle, glow = 1) {
     this.mat.uniforms.uTime.value = t;
     this.beamMat.uniforms.uTime.value = t;
     this.spinner.rotation.y = spinAngle;
+    for (const tr of this.trails || []) {
+      tr.g.rotation.y = spinAngle - tr.k * this.trailSpread;
+      tr.m.rotation.z = this.magnetic.rotation.z;
+      tr.g.visible = this.beamMat.uniforms.uIntensity.value > 0.001 && this.trailSpread > 0;
+    }
     const tw = 1 + 0.04 * Math.sin(t * 37.0) + 0.03 * Math.sin(t * 23.0);
     this.glowA.material.opacity = 0.95 * glow;
     this.glowB.material.opacity = 0.55 * glow * tw;
