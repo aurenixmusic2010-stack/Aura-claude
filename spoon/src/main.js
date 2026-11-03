@@ -4,7 +4,8 @@ import { Post } from './post.js';
 import { Overlay } from './overlay.js';
 import { buildWorld } from './world.js';
 import { SHOTS } from './shots.js';
-import { boilSeed, FPS } from './util.js';
+import { boilSeed, FPS, TW } from './util.js';
+import { locate } from './timeline.js';
 
 THREE.ColorManagement.enabled = false;
 
@@ -45,17 +46,20 @@ world.worldPos = (obj, local = [0, 0, 0]) => {
 };
 
 function renderFrame(f) {
-  const t = f / FPS;
+  const T = f / FPS; // output time
+  const L = locate(T);
+  const shot = SHOTS[L.shot];
+  const t = shot.start + L.src; // source time inside the shot's own choreography
+  TW.step = L.speed / 15;
   G.uTime.value = t;
-  G.uBoil.value = boilSeed(t);
+  G.uBoil.value = boilSeed(T);
   world.reset();
   world.views = null;
   camera.aspect = W / H;
   post.reset();
   post.u.uSeed.value = f % 997;
-  overlay.begin(t);
-  const shot = SHOTS.find((s) => t >= s.start && t < s.end) || SHOTS[SHOTS.length - 1];
-  shot.update(t, t - shot.start, world);
+  overlay.begin(T);
+  shot.update(t, L.src, world);
   renderViews();
 }
 

@@ -638,7 +638,7 @@ function noise1s(x) {
 }
 
 // ---------------------------------------------------------------------------------
-// SHOT 06 — THE FINAL JOKE (0:42–0:52)
+// SHOT 06 — RECAP + THE FINAL JOKE (output 0:35–0:52; recap beat added for the VO)
 // ---------------------------------------------------------------------------------
 export function shot6(t, lt, w) {
   const { astro: a, spoon: sp, ns, overlay: o, post, earth } = w;
@@ -658,15 +658,18 @@ export function shot6(t, lt, w) {
   earth.scale.setScalar(1.4);
   earth.rotation.y = t * 0.2;
 
-  const freeze0 = 2.0;
-  const freeze1 = 2.65;
-  const grow0 = 2.65;
-  const tdown = 3.45;
-  const drop = 6.05;
-  const panel0 = 6.25;
-  const fill0 = 7.35;
-  const text0 = 8.0;
-  const pix0 = 9.35;
+  // 0–9.0 s: recap beat under the VO; 9.0: dramatic silence; then the joke
+  const PRE = 9.0;
+  const D = PRE - 2.0;
+  const freeze0 = PRE;
+  const freeze1 = PRE + 0.65;
+  const grow0 = PRE + 0.65;
+  const tdown = PRE + 1.45;
+  const drop = PRE + 4.05;
+  const panel0 = PRE + 4.25;
+  const fill0 = PRE + 5.35;
+  const text0 = PRE + 6.0;
+  const pix0 = PRE + 7.35;
   const frozen = lc > freeze0 && lc < freeze1;
   const tc = frozen ? freeze0 : lc; // dramatic silence: everything holds
 
@@ -675,25 +678,38 @@ export function shot6(t, lt, w) {
   const A = V3(0.9, -0.3, 0.3);
   const p = P();
   p.time = t;
-  const sneak = E.inOut(inv(1.45, freeze0, tc));
+  const sneak = E.inOut(inv(8.25, freeze0, tc));
   a.root.position.copy(A).add(V3(-0.35 * sneak, 0.12 * sneak + Math.sin(tc * 1.6) * 0.05, -0.2 * sneak));
   const faceCam = inv(grow0, grow0 + 0.3, lc) * (1 - inv(drop, drop + 0.3, lc));
   a.root.rotation.set(0, lerp(lerp(-0.35, -0.7, sneak), -0.05, faceCam), lerp(0, 0.12, sneak) * (1 - faceCam));
   p.dizzy = 0.9 * (1 - inv(0.2, 1.0, tc));
   p.headTilt = Math.sin(tc * 4) * 0.2 * (1 - inv(0.3, 1.0, tc));
-  // looks at spoon, then at HOME, then the sly grin
-  const lookSpoon = inv(1.0, 1.15, tc);
-  const lookHome = inv(1.4, 1.55, tc);
-  p.lookX = lerp(lerp(0, 0.7, lookSpoon), -0.85, lookHome);
-  p.lookY = lerp(lerp(0, -0.5, lookSpoon), 0.65, lookHome);
-  p.mouthCurve = lerp(0.1, 1.0, inv(1.55, 1.75, tc));
-  p.mouthW = lerp(1, 1.25, inv(1.55, 1.75, tc));
-  p.eyeOpen = lerp(1, 0.55, inv(1.55, 1.75, tc));
-  p.browAngle = -0.35 * inv(1.55, 1.75, tc);
   p.handR = [0.5, 0.15, 0.55];
   p.fistR = 1;
   p.handL = [0.05, 0.1, 0.6];
   p.armBendL = 0.4;
+  p.mouthCurve = 0.15;
+  // VO: "So next time you think space is just a bunch of pretty stars,"
+  const stars = inv(1.3, 1.6, tc) * (1 - inv(3.15, 3.4, tc));
+  // "remember." -> to camera, brows up
+  const remember = inv(3.35, 3.5, tc) * (1 - inv(4.1, 4.3, tc));
+  // "Somewhere out there, there's a star so dense" -> glance at the tiny star
+  const atStar = inv(4.55, 4.75, tc) * (1 - inv(6.3, 6.5, tc));
+  // "that a teaspoon of it" -> looks at the spoon in his hand
+  const atSpoon = inv(6.45, 6.62, tc) * (1 - inv(7.65, 7.8, tc));
+  // "weighs more than a mountain." -> eyes HOME, sly grin, starts sneaking off
+  const atHome = inv(7.75, 7.92, tc);
+  const grin = inv(8.15, 8.4, tc);
+  const mixP = (k, vals) => {
+    for (const key in vals) p[key] = lerp(p[key], vals[key], k);
+  };
+  mixP(stars, { lookX: 0.45 * Math.sin(tc * 1.4), lookY: 0.9, headNod: -0.22, mouthOpen: 0.22, mouthW: 0.55, pupil: 1.15, bodyLean: -0.08 });
+  mixP(remember, { lookX: 0, lookY: 0, browY: 0.45, mouthCurve: 0.45, headNod: 0.05 });
+  mixP(atStar, { lookX: -0.95, lookY: -0.05, headTurn: -0.28, browAngle: 0.35, browY: 0.3, mouthOpen: 0.12, mouthW: 0.5 });
+  mixP(atSpoon, { lookX: 0.75, lookY: -0.55, headNod: 0.12, eyeScale: 1.12, pupil: 0.85 });
+  if (atSpoon > 0) p.handR = [lerp(0.5, 0.42, atSpoon), lerp(0.15, 0.38, atSpoon), lerp(0.55, 0.62, atSpoon)];
+  mixP(atHome, { lookX: -0.85, lookY: 0.65 });
+  mixP(grin, { mouthCurve: 1.0, mouthW: 1.25, eyeOpen: 0.55, browAngle: -0.35 });
   // fear when the spoon looms
   const fear = inv(grow0 + 0.1, grow0 + 0.35, lc);
   if (fear > 0) {
@@ -751,13 +767,13 @@ export function shot6(t, lt, w) {
   const st = SS();
   st.time = t;
   st.squash = 1 + wobble(lc - grow0, 3, 4, 0.25);
-  st.face = K(tc, [[1.95, 0], [2.0, 0.55], [grow0 + 0.1, 0.55], [grow0 + 0.3, 1, 'outBack']]);
+  st.face = K(tc, [[freeze0 - 0.05, 0], [freeze0, 0.55], [grow0 + 0.1, 0.55], [grow0 + 0.3, 1, 'outBack']]);
   st.eyeOpen = K(lc, [[freeze0, 0.15], [freeze1, 0.35], [grow0 + 0.25, 1.1]]);
   st.browAngle = -0.8 * inv(grow0 + 0.05, grow0 + 0.25, lc);
   st.lookX = 0.35;
   st.lookY = -0.75;
   st.pupil = 0.9;
-  const talk = lc > tdown + 0.35 && lc < 5.5 ? Math.abs(Math.sin((lc - tdown) * 15)) : 0;
+  const talk = lc > tdown + 0.35 && lc < 5.5 + D ? Math.abs(Math.sin((lc - tdown) * 15)) : 0;
   st.mouth = talk * 0.9 + 0.12 * inv(grow0 + 0.3, grow0 + 0.4, lc) * (1 - shrink);
   st.mouthW = 1.1;
   st.arms = E.outBack(inv(grow0 + 0.2, grow0 + 0.5, lc)) * (1 - shrink);
@@ -765,7 +781,9 @@ export function shot6(t, lt, w) {
   st.handL = [-0.32, 0.12, -0.55];
   st.handR = [lerp(0.42, 0.26, td), lerp(0.05, 0.4, td), lerp(0.3, -0.18, td)];
   st.thumbDown = td;
-  st.glow = 1.2;
+  // the spoon glows on "teaspoon"
+  st.glow = 1.2 + 1.1 * Math.sin(Math.PI * inv(6.75, 7.35, tc));
+  st.heat = 0.25 * Math.sin(Math.PI * inv(6.75, 7.35, tc));
   if (lc > drop) {
     st.face = 1 - shrink;
     st.mouth = 0;
@@ -777,22 +795,31 @@ export function shot6(t, lt, w) {
   let cTgt;
   let fov = 40;
   const head = a.helmetWorld([0, 0, 0]);
+  // after the pull-back the camera drifts in slowly under the recap, tilting up
+  // to the "pretty stars", then holds for the silence
+  const hold = [-0.05, 0.75, 8.6];
+  const holdT = [0.0, 0.35, 0];
   if (lt < freeze0) {
     const k = E.outExpo(inv(0, 1.25, lt));
     const close = [head.x + 0.35, head.y + 0.1, head.z + 2.9];
     const wide = [-0.4, 0.9, 10.5];
-    cPos = close.map((v, i) => lerp(v, wide[i], k));
-    cTgt = [lerp(head.x, -0.1, k), lerp(head.y, 0.4, k), lerp(head.z, 0, k)];
+    const drift = E.inOut(inv(1.25, freeze0, lt));
+    const up = Math.sin(Math.PI * inv(1.2, 3.6, lt));
+    const wideP = wide.map((v, i) => lerp(v, hold[i], drift));
+    const wideT = [-0.1, 0.4, 0].map((v, i) => lerp(v, holdT[i], drift));
+    wideT[1] += 0.45 * up;
+    cPos = close.map((v, i) => lerp(v, wideP[i], k));
+    cTgt = [lerp(head.x, wideT[0], k), lerp(head.y, wideT[1], k), lerp(head.z, wideT[2], k)];
     fov = lerp(38, 42, k);
   } else if (lt < grow0) {
-    cPos = [-0.4, 0.9, 10.5];
-    cTgt = [-0.1, 0.4, 0];
+    cPos = hold;
+    cTgt = holdT;
     fov = 42;
   } else if (lt < drop) {
     const k = E.inOutExpo(inv(grow0, grow0 + 0.4, lt));
     const low = [A.x + 1.0, A.y - 1.0, A.z + 10.2];
-    cPos = [lerp(-0.4, low[0], k), lerp(0.9, low[1], k), lerp(10.5, low[2], k)];
-    cTgt = [lerp(-0.1, A.x + 0.25, k), lerp(0.4, A.y + 3.0, k), lerp(0, A.z, k)];
+    cPos = [lerp(hold[0], low[0], k), lerp(hold[1], low[1], k), lerp(hold[2], low[2], k)];
+    cTgt = [lerp(holdT[0], A.x + 0.25, k), lerp(holdT[1], A.y + 3.0, k), lerp(holdT[2], A.z, k)];
     fov = lerp(42, 52, k);
   } else {
     const k = E.inOut(inv(drop, drop + 0.4, lt));
@@ -817,8 +844,13 @@ export function shot6(t, lt, w) {
   // --- overlay
   if (lt < panel0) {
     const [ex, ey] = w.toScreen(earth.position);
-    o.note('HOME', ex + 120, ey + 20, { size: 70, p: inv(1.35, 1.55, lt), out: inv(grow0, grow0 + 0.1, lt), rot: -6, color: YEL });
-    o.arrow(ex + 70, ey + 70, ex + 25, ey + 25, { p: inv(1.45, 1.6, lt), out: inv(grow0, grow0 + 0.1, lt), bend: 0.3, color: YEL, w: 6 });
+    o.note('HOME', ex + 120, ey + 20, { size: 70, p: inv(7.8, 8.0, lt), out: inv(grow0, grow0 + 0.1, lt), rot: -6, color: YEL });
+    o.arrow(ex + 70, ey + 70, ex + 25, ey + 25, { p: inv(7.9, 8.05, lt), out: inv(grow0, grow0 + 0.1, lt), bend: 0.3, color: YEL, w: 6 });
+    // "pretty stars": sparkles pop across the sky
+    const SP = [[170, 300, 2.15], [880, 250, 2.3], [640, 560, 2.42], [300, 690, 2.55], [930, 640, 2.66], [460, 210, 2.78]];
+    for (const [sx, sy, s0] of SP) {
+      o.word('\u2726', sx, sy, { size: 92, p: inv(s0, s0 + 0.14, lt), out: inv(s0 + 0.75, s0 + 0.95, lt), rot: o.j(sx, 8), fill: CREAM, shadowCol: CYAN, stroke: 12, shadow: 5, font: 'sans-serif', stagger: 0 });
+    }
   }
   const [mx, my] = w.toScreen(spoonWorld(sp, V3(0, 0.12, 0.2)));
   o.focusLines(mx, my, K(lt, [[tdown + 0.1, 0], [tdown + 0.15, 1], [tdown + 0.8, 0.0]]), { inner: 420, color: CREAM, count: 110, width: 1.3 });
@@ -858,13 +890,13 @@ export function shot6(t, lt, w) {
     o.word('RIDICULOUS.', 540, 1040, { size: 182, p: inv(text0 + 0.2, text0 + 0.5, lt), rot: 2, fill: YEL, shadowCol: MAG, stagger: 0.04 });
     g.restore();
     if (collapse > 0.85) {
-      const fade = 1 - inv(9.8, 9.88, lt);
+      const fade = 1 - inv(9.8 + D, 9.88 + D, lt);
       if (fade > 0) {
-        const pulse = 1 + 0.4 * Math.sin(inv(pix0 + 0.3, 9.8, lt) * Math.PI);
+        const pulse = 1 + 0.4 * Math.sin(inv(pix0 + 0.3, 9.8 + D, lt) * Math.PI);
         o.dot(540, 950, 3 * pulse * fade, '#ffffff', 70 * pulse * fade);
       }
     }
   }
   if (lt < text0) o.scratches(0.9);
-  else o.scratches(0.5 * (1 - inv(9.3, 9.6, lt)));
+  else o.scratches(0.5 * (1 - inv(9.3 + D, 9.6 + D, lt)));
 }

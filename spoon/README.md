@@ -1,10 +1,16 @@
 # GLITCHBOX: COSMIC TOON NOIR — *The Spoon That Could Break Earth*
 
 A 52-second vertical (1080×1920, 30 fps, H.264) animated short about neutron-star
-density. Picture only: music and voiceover get added in the edit. Exact hit timings
-for syncing are in [`BEAT-SHEET.md`](BEAT-SHEET.md).
+density, with the voiceover and the "Cosmic Joke" music track mixed in. The animation
+is locked to the voiceover; every line's timing is in [`BEAT-SHEET.md`](BEAT-SHEET.md).
 
-**Deliverable:** `out/the-spoon-that-could-break-earth.mp4` (H.264 High, 1080×1920, 30 fps, 52.0 s, 1560 frames, two-pass ~13.5 Mbps, no audio track)
+**Deliverables (`out/`):**
+
+- `the-spoon-that-could-break-earth.mp4`: final film. H.264 High, 1080×1920, 30 fps,
+  52.0 s, AAC 48 kHz stereo, mixed to −14 LUFS / −1 dBTP for Shorts, TikTok and Reels.
+- `captions.srt`: voiceover captions, timed to the mix, for platform upload.
+- `stems/voiceover.flac`, `stems/music.flac`: the edited VO and the ducked music bed,
+  as mixed, if you want to rebalance in an editor.
 
 ## How it's made
 
@@ -45,6 +51,9 @@ src/post.js         final composite shader
 src/shots.js        shots 01–02 choreography
 src/shots2.js       shots 03–06 choreography
 src/shotkit.js      shared shot helpers
+src/timeline.js     the VO-locked edit: per-shot time warps (output time -> shot time)
+audio/              source VO + music, and vo-edit.json (line cuts, placement, ducking)
+tools/mix_audio.py  builds the soundtrack, stems and captions from audio/vo-edit.json
 tools/encode.sh     PNG sequence -> delivery MP4
 tools/contact.py    contact sheets for review
 fonts/              Bangers + Space Mono (SIL OFL 1.1), Permanent Marker (Apache 2.0); licenses included
@@ -56,8 +65,11 @@ fonts/              Bangers + Space Mono (SIL OFL 1.1), Permanent Marker (Apache
 cd spoon
 npm install                       # three.js
 node render.js --range 0:1560 --scale 1 --workers 2 --out frames   # ~17 min on 4 CPU cores
-tools/encode.sh frames out/the-spoon-that-could-break-earth.mp4
+python3 tools/mix_audio.py build/audio  # VO edit + music bed + loudness + captions
+tools/encode.sh frames out/the-spoon-that-could-break-earth.mp4 build/audio/mix-normalised.wav
 ```
+
+The mixer needs `ffmpeg` built with `librubberband`, plus Python with NumPy.
 
 Quick previews: `node render.js --frames 0,57,300,1380 --scale 0.5 --out preview`.
 

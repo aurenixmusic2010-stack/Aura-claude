@@ -3,3 +3,4 @@ frames/
 preview/
 *.png
 !fonts/*
+build/

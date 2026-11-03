@@ -94,8 +94,10 @@ export function shake(t, t0, amp, decay = 6, freq = 22, seed = 0) {
   return [noise1(t * freq, seed + 1) * a, noise1(t * freq, seed + 7) * a];
 }
 
-// Animation "on twos": quantise character time to 15 fps for a hand-made cadence.
-export const onTwos = (t) => Math.floor(t * 15 + 1e-4) / 15;
+// Animation "on twos": quantise character time to 15 fps (of output time) for a
+// hand-made cadence. TW.step is set per frame from the edit's time-warp speed.
+export const TW = { step: 1 / 15 };
+export const onTwos = (t) => Math.floor(t / TW.step + 1e-4) * TW.step;
 export const onThrees = (t) => Math.floor(t * 10 + 1e-4) / 10;
 
 // Boil seed: changes ~10x per second, like redrawn ink lines.

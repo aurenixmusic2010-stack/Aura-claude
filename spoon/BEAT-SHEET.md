@@ -1,102 +1,110 @@
-# THE SPOON THAT COULD BREAK EARTH — beat sheet
+# THE SPOON THAT COULD BREAK EARTH — beat sheet (VO-locked cut)
 
-GLITCHBOX: COSMIC TOON NOIR · 52.0 s · 1080×1920 · 30 fps · picture only (no audio)
+GLITCHBOX: COSMIC TOON NOIR · 52.0 s · 1080×1920 · 30 fps · music + voiceover mixed in
 
-Every hard hit is listed with its exact time so music and voiceover can be cut to
-picture. "Impact" means a two-tone comic impact frame: 2–3 inverted/black-and-white
-frames that work as a natural sync point for a hit or record scratch.
+The animation was re-timed to the voiceover (`src/timeline.js`): each shot plays
+through a time warp, re-rendered at the warped times (nothing is frame-duplicated),
+and shot 06 gained a 9-second recap beat for the closing lines. Voice lines are
+placed by `audio/vo-edit.json`; captions are in `out/captions.srt`.
+
+**VO:** "Adam — Neutral, Hopeful and Airy" read, retimed 1.08× (pitch and formants
+preserved), each line levelled to the read's median speech level, except the final
+"Space is ridiculous.", which stays at 1.0× for the punchline. One edit to the read:
+the clause *"a teaspoon of its material would weigh around a billion tons on Earth"*
+moves from the star section onto the scale gag, where the matching text appears.
+Only the joining word "that" is dropped.
+
+**Music:** "Cosmic Joke" plays straight through from 0:00. Its own build to 0:36
+carries the science, and its climax (0:45.0–46.5) lands on the spoon's transformation
+and thumbs-down. In the mix it ducks −9 dB under every line, dips −11 dB for the
+awkward pause, and cuts to digital silence for the dramatic pause (0:44.00–0:44.62).
+Master: −14 LUFS integrated, −1.0 dBTP.
 
 ## Shot 01 — The hook (0:00–0:03)
 
-| Time | Picture | Suggested sound |
+| Time | Picture | Voiceover |
 |---|---|---|
-| 0:00.00 | Pure black | silence / low drone fades in |
-| 0:00.10 | A single white pixel appears, glows | tiny electrical tick |
-| 0:00.34 | **Glitch pop**: the pixel becomes a spinning chrome teaspoon full of glowing matter | glitch burst + metallic *shing* |
-| 0:00.55 | "THIS SPOON" slams in | type hit |
-| 0:00.60–1.12 | Astronaut drifts in, whistling, grabs the handle | casual whistle (foley) |
-| 0:01.42 | Neutron star **flares on** behind; camera starts rushing in | reverse cosmic swell |
-| **0:01.90** | **Impact frame** — spoon stands like a monument; "BILLION-TON DENSITY" | big cartoon impact |
-| 0:02.55–3.00 | The weight kicks in: spoon plunges, astronaut yanked down | falling whistle |
+| 0:00.10 | Single white pixel | **"This tiny spoon could weigh a billion tons."** (0:00.10–3.06) |
+| 0:00.34 | Glitch pop: the pixel becomes a chrome teaspoon of glowing matter | |
+| 0:00.55 | "THIS SPOON" | |
+| 0:01.12 | Astronaut casually grabs it | |
+| 0:01.42 | Neutron star flares on behind; camera rushes in | |
+| **0:01.90** | **Impact frame** — "BILLION-TON DENSITY" (VO says "billion" at 0:02.06) | |
+| 0:02.55 | The weight kicks in: spoon plunges, astronaut yanked down | |
 
-## Shot 02 — The impossible spoon (0:03–0:10)
+## Shot 02 — The impossible spoon (0:03–0:08.5)
 
-| Time | Picture | Suggested sound |
+| Time | Picture | Voiceover |
 |---|---|---|
-| 0:03.10 | Spoon slams into the "imaginary floor", which sags like a gravity well. "KLANG!" | heavy metallic clang |
-| 0:03.20 | Astronaut lands on his rump | cartoon thud |
-| 0:03.95 | Label: "1 TEASPOON OF NEUTRON STAR" | — |
-| 0:04.45–6.05 | Heave 1 + 2: feet sink into the floor. "HNNNGH!" at 0:05.30 | strain grunts (VO or foley) |
-| 0:06.10 | "POP!" feet yank free; he rockets up on taffy-stretched arms. Camera orbits | rubbery stretch |
-| **0:07.15** | **"SNAP!"** grip fails, he shoots out the top of frame | rubber-band snap |
-| 0:07.66 | "THUD." he lands beside the spoon | thud |
-| 0:08.18 | Split comic panels: he side-eyes the spoon | **dead silence starts** |
-| 0:08.42 | The spoon's eyes pop open. It looks back | tiny *blink* |
-| 0:08.95–9.50 | Awkward pause, "..." | silence (cricket optional) |
-| 0:09.55–10.00 | Camera dives into the glowing bowl, white-out | rising whoosh |
+| 0:03.09 | "KLANG!" Spoon dents the imaginary floor like a gravity well | **"No, seriously."** (0:03.42) |
+| 0:03.86 | Label "ONE TEASPOON OF NEUTRON STAR" | |
+| 0:04.32–6.40 | Heaves, feet sink, "HNNNGH!" (0:05.07), "POP!" (0:05.65), taffy arms | (no VO, slapstick) |
+| **0:06.40** | **"SNAP!"** | |
+| 0:06.77 | "THUD." | |
+| 0:07.15 | Split panels: side-eye; the spoon's eyes pop open (0:07.33) | |
+| 0:07.45–8.10 | Awkward pause, "…" — music dips | |
+| 0:08.17 | Camera dives into the glowing bowl | **"Somewhere in space,"** (0:08.15) |
 
-## Shot 03 — The star collapses (0:10–0:20)
+## Shot 03 — The star collapses (0:08.5–0:15.9)
 
-| Time | Picture | Suggested sound |
+| Time | Picture | Voiceover |
 |---|---|---|
-| 0:10.00 | White-out resolves into a giant star; camera pulls back | deep drone |
-| 0:10.50 | "IT STARTS AS A GIANT STAR" · caption "8–20× THE SUN'S MASS" | — |
-| 0:11.0–13.3 | Star swells; astronaut measures it with his thumb, then gives up | swelling rumble |
-| **0:13.85** | **SUPERNOVA** — flash + impact frames, shock rings | huge boom |
-| 0:13.9–16.0 | Outer layers become a ring nebula; astronaut blown away | debris whoosh |
-| 0:16.05 | "THE CORE COLLAPSES..." camera dives toward the core | reverse cosmic impact (sucking in) |
-| **0:17.55** | **Neutron star born** — snap flash | sharp crack |
-| 0:17.7–20.0 | "...INTO A NEUTRON STAR" · "~20 KM ACROSS / MORE MASS THAN THE SUN" · astronaut floats back, "?" | — |
+| 0:08.50 | White-out into a giant star · "IT STARTS AS A GIANT STAR" (0:08.83) | **"…a star died."** (ends 0:10.45) |
+| 0:09.29 | Caption "8–20× THE SUN'S MASS" | |
+| **0:11.05** | **SUPERNOVA** impact; ring nebula | |
+| 0:12.15 | "THE CORE COLLAPSES..." | **"Its core collapsed into something so dense…"** (0:11.81–14.13, "collapsed" on the text) |
+| 0:13.55 | Neutron star born · "...INTO A NEUTRON STAR" | |
+| 0:14.08 | "~20 KM ACROSS / MORE MASS THAN THE SUN" · "?" (0:14.56) | **"That's a neutron star."** (0:14.40) |
 
-## Shot 04 — The density reveal (0:20–0:32)
+## Shot 04 — The density reveal (0:15.9–0:26.0)
 
-| Time | Picture | Suggested sound |
+| Time | Picture | Voiceover |
 |---|---|---|
-| 0:20.00 | Zoom into the star: a lattice of atoms | glassy shimmer |
-| 0:20.45 | "ATOMS ARE MOSTLY EMPTY SPACE" | — |
-| 0:22.40 | "SQUEEZE!" lattice compresses, orbits collapse | pressure groan |
-| 0:22.70 | Caption "GRAVITY CRUSHES ELECTRONS INTO PROTONS → NEUTRONS" | — |
-| 0:23.60 | "NEUTRONS, PACKED TIGHT" — a wall of neutrons | — |
-| 0:25.00–25.30 | Glitch + flash cut | glitch |
-| 0:25.30 | The teaspoon sits on a giant balance; one spoon tips it right over | creak |
-| **0:26.45** | **"THOOM!"** a mountain lands on the other pan | huge thud |
-| 0:26.45–27.3 | The beam swings level: balanced | creaky wobble |
-| 0:27.20 | "ONE TEASPOON" / "~1 BILLION TONS" · caption "≈ THE MASS OF A SMALL MOUNTAIN (A DENSITY COMPARISON. NOT A SHIPPING PLAN.)" | — |
-| **0:28.70** | **"KRAK!"** beam snaps under 2 billion tons — impact frame | crack + crash |
-| 0:29.25–30.05 | Astronaut flies in, duct-tapes it, pushes it back up | tape screech |
-| 0:30.05 | Thumbs-up, "FIXED!" | ding |
-| **0:30.60** | **"KRA-KOOM!!"** — it breaks again, bigger (7-frame impact) | biggest impact of the film |
-| 0:31.60–32.00 | Glitch out | glitch |
+| 0:16.29 | "ATOMS ARE MOSTLY EMPTY SPACE" | **"Imagine squeezing the mass of an entire mountain…"** (0:16.10) |
+| 0:17.98 | "SQUEEZE!" (lands on "mountain") | |
+| 0:18.24 | "GRAVITY CRUSHES ELECTRONS INTO PROTONS → NEUTRONS" | **"…into something smaller than a city."** (to 0:20.47) |
+| 0:19.02 | "NEUTRONS, PACKED TIGHT" | |
+| 0:20.50 | Glitch cut to the giant balance scale | |
+| 0:21.16 | "TEASPOON" label | **"A teaspoon of its material would weigh around a billion tons on Earth."** (0:20.91–24.54) |
+| 0:21.44 | "THOOM!" mountain lands, beam swings level | |
+| 0:22.06 | "ONE TEASPOON" / "~1 BILLION TONS" · caption "≈ THE MASS OF A SMALL MOUNTAIN (A DENSITY COMPARISON. NOT A SHIPPING PLAN.)" | |
+| **0:23.29** | **"KRAK!"** (on "billion tons") | |
+| 0:23.74–24.40 | Duct-tape repair, "FIXED!" | |
+| **0:24.85** | **"KRA-KOOM!!"** | **"That's not even the craziest part."** (0:25.15) |
+| 0:25.67 | Glitch out | |
 
-## Shot 05 — The cosmic lighthouse (0:32–0:42)
+## Shot 05 — The cosmic lighthouse (0:26.0–0:35.0)
 
-| Time | Picture | Suggested sound |
+| Time | Picture | Voiceover |
 |---|---|---|
-| 0:32.00 | Glitch in: neutron star close-up | — |
-| 0:32.25 | "IT SPINS." | spin-up whine |
-| 0:32.95 | Two beams erupt from the magnetic poles | electric zap |
-| 0:33.25 | "PULSAR" · caption "SOME SPIN 700+ TIMES A SECOND..." | — |
-| 0:33.5–36.5 | Camera flies through an asteroid field; the beams sweep past in a steady rhythm (star turns 1.25×/s on screen) | rhythmic *whum-whum* pulse, synced to sweeps |
-| 0:36.7–39.0 | Astronaut caught in the beams, spins like a toy. "@#$%&!" | spinning top whirr |
-| 0:39.0–40.9 | Comes to rest, dizzy, stars circling | cartoon dizzy tweets |
-| 0:41.0–42.0 | Wide: "A CITY-SIZED COSMIC LIGHTHOUSE" | — |
+| 0:26.23 | "IT SPINS." | |
+| 0:26.81 | Beams erupt from the magnetic poles | **"Some neutron stars spin hundreds of times every second."** (0:26.75) |
+| 0:27.12 | "PULSAR" · caption "SOME SPIN 700+ TIMES A SECOND…" (0:27.71) | |
+| 0:27.35–30.2 | Fly-through of the asteroid field, beams sweeping | |
+| 0:30.23 | Astronaut caught in the beams, spinning; "@#$%&!" | **"And some shoot beams of radiation through space like a cosmic lighthouse."** (0:30.15) |
+| 0:32.30 | Dizzy, stars circling | |
+| 0:34.10 | Wide: "A CITY-SIZED COSMIC LIGHTHOUSE" | **"They're called pulsars."** (0:33.98) |
 
-## Shot 06 — The final joke (0:42–0:52)
+## Shot 06 — Recap + the final joke (0:35.0–0:52.0)
 
-| Time | Picture | Suggested sound |
+| Time | Picture | Voiceover |
 |---|---|---|
-| 0:42.00 | Rapid pull-back from his dizzy face to a wide: astronaut, tiny neutron star, Earth ("HOME") far away | whoosh |
-| 0:43.0–44.0 | He eyes the spoon, eyes HOME, sly grin, starts sneaking home with it | sneaky pizzicato |
-| **0:44.00–44.65** | **Dramatic silence** — everything freezes | **cut all audio** |
-| 0:44.65 | The spoon becomes a giant cartoon character | record scratch / boing |
-| **0:45.57** | **Thumbs-down** — impact frame | hit |
-| 0:45.75–48.1 | Speech bubble: "YOU'RE NOT TAKING ME HOME." (mouth flaps 45.8–47.5 for a VO line) | spoon's line (VO) |
-| 0:48.05 | He drops it | tiny *plink* |
-| 0:48.25 | A black comic panel slams open below; the spoon falls in. "PLUNK." | plunk |
-| 0:49.35–49.9 | The black panel swallows the frame | — |
-| 0:50.00 | "SPACE IS RIDICULOUS." | sting |
-| 0:51.35–51.70 | Text collapses into a single glowing pixel | reverse shimmer |
-| 0:51.80–52.00 | Pixel winks out. Black | silence |
+| 0:35.00 | Rapid pull-back from his dizzy face | **"So next time you think space is just a bunch of pretty stars,"** (0:35.30) |
+| 0:36.30 | He gazes up; sparkles pop on "pretty stars" (0:37.15) | |
+| 0:38.35 | Looks to camera | **"remember."** (0:38.40) |
+| 0:39.55 | Glances at the tiny neutron star | **"Somewhere out there, there's a star so dense"** (0:39.05) |
+| 0:41.45 | Looks at the spoon; it glows on "teaspoon" | **"that a teaspoon of it weighs more than a mountain."** (to 0:43.96) |
+| 0:42.80–43.15 | "HOME" → sly grin, starts sneaking home with it | |
+| **0:44.00–44.62** | **Dramatic silence** — everything freezes, audio at digital zero | |
+| 0:44.65 | The spoon becomes a giant cartoon character (music climax from 0:45.0) | |
+| **0:45.57** | **Thumbs-down** impact frame | |
+| 0:45.75–48.2 | "YOU'RE NOT TAKING ME HOME." | |
+| 0:48.05 | He drops it | |
+| 0:48.25 | Black comic panel swallows it — "PLUNK." (0:48.80) | |
+| 0:49.35 | The panel swallows the frame | |
+| 0:50.00 | "SPACE IS RIDICULOUS." | **"Space is ridiculous."** (0:49.93) |
+| 0:51.35 | Text collapses into a single glowing pixel | |
+| 0:51.80 | Pixel winks out. Black | |
 
 ## Science notes (what the picture claims)
 
@@ -112,3 +120,5 @@ frames that work as a natural sync point for a hit or record scratch.
 - Pulsars: beams from the magnetic poles sweep space as the star spins; the fastest
   known spins ~716 times per second ("700+"). Beams are drawn stylised, not literal.
 - "*not to scale" is flagged on screen where the neutron star is drawn tiny.
+- The VO's "weighs more than a mountain" is the narrator's flourish; the on-screen
+  comparison stays at "≈ a small mountain".

@@ -476,5 +476,5 @@ export const SHOTS = [
   { start: 10, end: 20, update: shot3 },
   { start: 20, end: 32, update: shot4 },
   { start: 32, end: 42, update: shot5 },
-  { start: 42, end: 52.01, update: shot6 },
+  { start: 42, end: 59.01, update: shot6 },
 ];
