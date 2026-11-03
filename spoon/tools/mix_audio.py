@@ -94,6 +94,21 @@ def quiet_near(t, lo, hi):
     return (i0 + int(np.argmin(rawdb[i0:i1 + 1]))) / 200
 
 
+def edge(t, direction, limit, thr=-46, run=0.05):
+    i = int(t * 200)
+    need = int(run * 200)
+    lim = int(limit * 200)
+    q = 0
+    while 0 < i < len(rawdb) - 1:
+        if (direction < 0 and i <= lim) or (direction > 0 and i >= lim):
+            break
+        q = q + 1 if rawdb[i] < thr else 0
+        if q >= need:
+            return (i + (need if direction < 0 else -need) * 0 ) / 200 + (0.02 if direction < 0 else -0.0)
+        i += direction
+    return i / 200
+
+
 wi = 0
 lines = []
 order = []
@@ -113,8 +128,10 @@ for gi, ln in order:
         k = j + len(toks) - 1
         prev_end = W[j - 1][1] if j > 0 else 0.0
         next_start = W[k + 1][0] if k + 1 < len(W) else len(raw) / SR
-        s0 = max(0.0, quiet_near(W[j][0], max(prev_end - W[j][0], -0.25), 0.02) - 0.01) if j > 0 else 0.0
-        s1 = quiet_near(W[k][1], -0.02, min(next_start - W[k][1], 0.3)) + 0.01
+        # edges from the waveform: walk outward to the first real silence (ASR word
+        # edges can be early or degenerate), never past the neighbouring words
+        s0 = edge(W[j][0] if j > 0 else 0.0, -1, prev_end if j > 0 else 0.0) if j > 0 else 0.0
+        s1 = edge(W[k][1], +1, next_start)
         words = [(W[m][0] - s0, W[m][2]) for m in range(j, k + 1)]
         if len(ln) > 2 and ln[2] == "drop":
             wi = k + 1

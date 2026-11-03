@@ -1,7 +1,8 @@
 # GLITCHBOX: COSMIC TOON NOIR — *The Spoon That Could Break Earth*
 
 A 52-second vertical (1080×1920, 30 fps, H.264) animated short about neutron-star
-density, with the voiceover and the "Cosmic Joke" music track mixed in. The animation
+density, with the voiceover, the "Cosmic Joke" music track and full procedural sound
+design mixed in. The animation
 is locked to the voiceover; every line's timing is in [`BEAT-SHEET.md`](BEAT-SHEET.md).
 
 **Deliverables (`out/`):**
@@ -9,8 +10,9 @@ is locked to the voiceover; every line's timing is in [`BEAT-SHEET.md`](BEAT-SHE
 - `the-spoon-that-could-break-earth.mp4`: final film. H.264 High, 1080×1920, 30 fps,
   52.0 s, AAC 48 kHz stereo, mixed to −14 LUFS / −1 dBTP for Shorts, TikTok and Reels.
 - `captions.srt`: voiceover captions, timed to the mix, for platform upload.
-- `stems/voiceover.flac`, `stems/music.flac`: the edited VO and the ducked music bed,
-  as mixed, if you want to rebalance in an editor.
+- `stems/voiceover.flac`, `stems/music.flac`, `stems/sfx.flac`: the edited VO, the
+  ducked music bed and the sound design, as mixed, for rebalancing in an editor.
+- `vo-placement.json`: where every voice line sits, its source cut and its speed.
 
 ## How it's made
 
@@ -54,9 +56,11 @@ src/shotkit.js      shared shot helpers
 src/timeline.js     the VO-locked edit: per-shot time warps (output time -> shot time)
 audio/              source VO + music, and vo-edit.json (line cuts, placement, ducking)
 tools/mix_audio.py  builds the soundtrack, stems and captions from audio/vo-edit.json
+tools/sfx.py        procedural sound design: generators + the 132-cue timeline
+tools/glitch_scan.py flags isolated one-frame outliers in a rendered sequence
 tools/encode.sh     PNG sequence -> delivery MP4
 tools/contact.py    contact sheets for review
-fonts/              Bangers + Space Mono (SIL OFL 1.1), Permanent Marker (Apache 2.0); licenses included
+fonts/              Caveat Brush, Bangers, Space Mono (SIL OFL 1.1), Permanent Marker (Apache 2.0); licences included
 ```
 
 ## Render it yourself

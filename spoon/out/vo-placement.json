@@ -1,0 +1,272 @@
+[
+ {
+  "at": 0.3,
+  "end": 1.204,
+  "tempo": 1.04,
+  "src": [
+   0.0,
+   0.94
+  ],
+  "text": "This spoon"
+ },
+ {
+  "at": 1.304,
+  "end": 3.83,
+  "tempo": 1.04,
+  "src": [
+   0.94,
+   3.625
+  ],
+  "text": "weighs a billion tons."
+ },
+ {
+  "at": 3.93,
+  "end": 4.81,
+  "tempo": 1.04,
+  "src": [
+   4.11,
+   5.025
+  ],
+  "text": "No, seriously."
+ },
+ {
+  "at": 4.91,
+  "end": 7.035,
+  "tempo": 1.04,
+  "src": [
+   5.215,
+   7.425
+  ],
+  "text": "It's one teaspoon of neutron star."
+ },
+ {
+  "at": 8.3,
+  "end": 10.065,
+  "tempo": 1.0,
+  "src": [
+   7.775,
+   9.54
+  ],
+  "text": "It starts as a giant star..."
+ },
+ {
+  "at": 11.15,
+  "end": 12.105,
+  "tempo": 1.0,
+  "src": [
+   9.585,
+   10.54
+  ],
+  "text": "Supernova!"
+ },
+ {
+  "at": 12.205,
+  "end": 13.275,
+  "tempo": 1.0,
+  "src": [
+   10.57,
+   11.64
+  ],
+  "text": "The core collapses..."
+ },
+ {
+  "at": 13.45,
+  "end": 15.142,
+  "tempo": 1.0,
+  "src": [
+   11.64,
+   13.79
+  ],
+  "text": "...into a neutron star."
+ },
+ {
+  "at": 15.8,
+  "end": 17.697,
+  "tempo": 1.07,
+  "src": [
+   16.095,
+   18.125
+  ],
+  "text": "Atoms are mostly empty space."
+ },
+ {
+  "at": 17.9,
+  "end": 18.998,
+  "tempo": 1.07,
+  "src": [
+   18.425,
+   19.6
+  ],
+  "text": "Gravity crushes them..."
+ },
+ {
+  "at": 19.098,
+  "end": 20.935,
+  "tempo": 1.07,
+  "src": [
+   19.6,
+   21.565
+  ],
+  "text": "...into neutrons, packed tight."
+ },
+ {
+  "at": 20.97,
+  "end": 21.899,
+  "tempo": 1.13,
+  "src": [
+   22.085,
+   23.135
+  ],
+  "text": "One teaspoon..."
+ },
+ {
+  "at": 21.999,
+  "end": 23.437,
+  "tempo": 1.13,
+  "src": [
+   23.215,
+   24.84
+  ],
+  "text": "...about a billion tons,"
+ },
+ {
+  "at": 23.537,
+  "end": 24.931,
+  "tempo": 1.13,
+  "src": [
+   24.915,
+   26.49
+  ],
+  "text": "as much as a small mountain."
+ },
+ {
+  "at": 25.05,
+  "end": 26.518,
+  "tempo": 1.1,
+  "src": [
+   26.795,
+   28.41
+  ],
+  "text": "Wait, it gets weirder."
+ },
+ {
+  "at": 26.618,
+  "end": 27.236,
+  "tempo": 1.1,
+  "src": [
+   28.5,
+   29.18
+  ],
+  "text": "It spins."
+ },
+ {
+  "at": 27.336,
+  "end": 28.565,
+  "tempo": 1.1,
+  "src": [
+   29.18,
+   30.625
+  ],
+  "text": "It's a pulsar."
+ },
+ {
+  "at": 28.665,
+  "end": 30.793,
+  "tempo": 1.1,
+  "src": [
+   30.72,
+   33.06
+  ],
+  "text": "Some spin hundreds of times a second."
+ },
+ {
+  "at": 30.893,
+  "end": 32.506,
+  "tempo": 1.1,
+  "src": [
+   33.395,
+   35.17
+  ],
+  "text": "Two beams sweep through space,"
+ },
+ {
+  "at": 32.606,
+  "end": 33.811,
+  "tempo": 1.1,
+  "src": [
+   35.295,
+   36.62
+  ],
+  "text": "so don't stand in the way."
+ },
+ {
+  "at": 33.911,
+  "end": 35.27,
+  "tempo": 1.1,
+  "src": [
+   36.875,
+   38.37
+  ],
+  "text": "A cosmic lighthouse."
+ },
+ {
+  "at": 35.45,
+  "end": 37.675,
+  "tempo": 1.0,
+  "src": [
+   38.66,
+   40.885
+  ],
+  "text": "So next time you look up at the pretty stars,"
+ },
+ {
+  "at": 37.95,
+  "end": 38.505,
+  "tempo": 1.0,
+  "src": [
+   40.9,
+   41.455
+  ],
+  "text": "remember,"
+ },
+ {
+  "at": 38.605,
+  "end": 40.24,
+  "tempo": 1.0,
+  "src": [
+   41.735,
+   43.37
+  ],
+  "text": "one of them is so dense,"
+ },
+ {
+  "at": 40.95,
+  "end": 42.015,
+  "tempo": 1.0,
+  "src": [
+   43.535,
+   44.6
+  ],
+  "text": "a teaspoon of it"
+ },
+ {
+  "at": 42.115,
+  "end": 43.5,
+  "tempo": 1.0,
+  "src": [
+   44.6,
+   45.985
+  ],
+  "text": "weighs like a mountain."
+ },
+ {
+  "at": 49.95,
+  "end": 51.475,
+  "tempo": 1.0,
+  "src": [
+   46.785,
+   48.31
+  ],
+  "text": "Space is ridiculous."
+ }
+]
