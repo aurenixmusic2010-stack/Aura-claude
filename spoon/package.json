@@ -1,0 +1,15 @@
+{
+  "name": "glitchbox-spoon",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GLITCHBOX: COSMIC TOON NOIR - The Spoon That Could Break Earth (52s vertical animated short, rendered with three.js)",
+  "scripts": {
+    "preview": "node render.js --frames 0,57,300,600,960,1380 --scale 0.5 --out preview",
+    "render": "node render.js --range 0:1560 --scale 1 --out frames",
+    "encode": "tools/encode.sh frames out/the-spoon-that-could-break-earth.mp4"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "three": "0.170.0"
+  }
+}
