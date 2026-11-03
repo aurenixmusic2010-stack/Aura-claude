@@ -1,31 +1,177 @@
 {
-  "tempo": 1.08,
-  "note": "src = seconds in vo-adam.mp3; at = output time in the 52s cut. One edit vs the read: the clause 'a teaspoon of its material would weigh around a billion tons on Earth' moves onto the scale gag (dropping the joining word 'that').",
-  "phrases": [
-    {"id": "P1",  "src": [0.00, 3.20],  "at": 0.10,  "text": "This tiny spoon could weigh a billion tons."},
-    {"id": "P2",  "src": [3.72, 4.86],  "at": 3.42,  "text": "No, seriously."},
-    {"id": "P3",  "src": [5.90, 8.38],  "at": 8.15,  "text": "Somewhere in space, a star died."},
-    {"id": "P4a", "src": [8.80, 11.30], "at": 11.81, "text": "Its core collapsed into something so dense..."},
-    {"id": "P5",  "src": [15.87, 17.28],"at": 14.40, "text": "That's a neutron star."},
-    {"id": "P6",  "src": [17.58, 22.30],"at": 16.10, "text": "Imagine squeezing the mass of an entire mountain|into something smaller than a city.", "split": 20.26},
-    {"id": "P4b", "src": [11.585, 15.50],"at": 20.91, "text": "A teaspoon of its material would weigh|around a billion tons on Earth.", "split": 13.52},
-    {"id": "P7",  "src": [22.61, 24.18],"at": 25.15, "text": "That's not even the craziest part."},
-    {"id": "P8",  "src": [24.46, 27.90],"at": 26.75, "text": "Some neutron stars spin|hundreds of times every second.", "split": 25.72},
-    {"id": "P9",  "src": [28.24, 32.25],"at": 30.15, "text": "And some shoot beams of radiation through space|like a cosmic lighthouse.", "split": 30.64},
-    {"id": "P10", "src": [32.62, 33.80],"at": 33.98, "text": "They're called pulsars."},
-    {"id": "P11", "src": [34.18, 37.34],"at": 35.30, "text": "So next time you think space is just|a bunch of pretty stars,", "split": 35.58},
-    {"id": "P12", "src": [37.69, 38.26],"at": 38.40, "text": "remember."},
-    {"id": "P13", "src": [38.60, 43.90],"at": 39.05, "text": "Somewhere out there, there's a star so dense|that a teaspoon of it weighs more than a mountain.", "split": 41.16},
-    {"id": "P14", "src": [44.10, 46.03],"at": 49.93, "text": "Space is ridiculous.", "tempo": 1.0}
-  ],
-  "music": {
-    "duck_db": -9.0,
-    "duck_attack": 0.08,
-    "duck_release": 0.35,
-    "dips": [
-      {"from": 7.45, "to": 8.10, "db": -11.0, "note": "awkward pause"}
+ "vo": "audio/vo-adam-v2.mp3",
+ "words": "audio/vo-adam-v2.words.json",
+ "note": "Lines are cut from the read by matching words, snapped to quiet points, long internal pauses tightened to 0.12s. Each group fills the time between two sync points; tempo (pitch-preserved) only rises if a group would overrun.",
+ "gap": 0.1,
+ "groups": [
+  {
+   "start": 0.3,
+   "deadline": 7.05,
+   "anchor": [
+    "billion",
+    2.06
+   ],
+   "lines": [
+    [
+     "This spoon"
     ],
-    "silence": [44.0, 44.62],
-    "end_fade": [51.2, 52.0]
+    [
+     "weighs a billion tons."
+    ],
+    [
+     "No, seriously.",
+     3.3
+    ],
+    [
+     "It's one teaspoon of neutron star."
+    ]
+   ]
+  },
+  {
+   "start": 8.3,
+   "deadline": 10.9,
+   "lines": [
+    [
+     "It starts as a giant star..."
+    ]
+   ]
+  },
+  {
+   "start": 11.15,
+   "deadline": 15.75,
+   "lines": [
+    [
+     "Supernova!"
+    ],
+    [
+     "The core collapses...",
+     12.1
+    ],
+    [
+     "...into a neutron star.",
+     13.45
+    ]
+   ],
+   "dropped": [
+    "Only 20 kilometers wide. (the on-screen caption '~20 KM ACROSS' carries it)"
+   ]
+  },
+  {
+   "start": 15.8,
+   "deadline": 20.95,
+   "lines": [
+    [
+     "Atoms are mostly empty space."
+    ],
+    [
+     "Gravity crushes them...",
+     17.9
+    ],
+    [
+     "...into neutrons, packed tight."
+    ]
+   ]
+  },
+  {
+   "start": 20.97,
+   "deadline": 24.95,
+   "lines": [
+    [
+     "One teaspoon..."
+    ],
+    [
+     "...about a billion tons,"
+    ],
+    [
+     "as much as a small mountain."
+    ]
+   ]
+  },
+  {
+   "start": 25.05,
+   "deadline": 35.35,
+   "lines": [
+    [
+     "Wait, it gets weirder."
+    ],
+    [
+     "It spins.",
+     26.15
+    ],
+    [
+     "It's a pulsar."
+    ],
+    [
+     "Some spin hundreds of times a second."
+    ],
+    [
+     "Two beams sweep through space,",
+     30.1
+    ],
+    [
+     "so don't stand in the way."
+    ],
+    [
+     "A cosmic lighthouse."
+    ]
+   ]
+  },
+  {
+   "start": 35.45,
+   "deadline": 43.58,
+   "lines": [
+    [
+     "So next time you look up at the pretty stars,"
+    ],
+    [
+     "remember,",
+     37.95
+    ],
+    [
+     "one of them is so dense,"
+    ],
+    [
+     "a teaspoon of it",
+     40.95
+    ],
+    [
+     "weighs like a mountain."
+    ]
+   ]
+  },
+  {
+   "start": 49.95,
+   "deadline": 51.8,
+   "lines": [
+    [
+     "Space is ridiculous."
+    ]
+   ]
   }
+ ],
+ "music": {
+  "bed_gain": 0.55,
+  "duck_db": -9.0,
+  "hero_duck_db": -4.0,
+  "dips": [
+   {
+    "from": 7.45,
+    "to": 8.1,
+    "db": -11.0,
+    "note": "awkward pause"
+   }
+  ],
+  "silence": [
+   43.66,
+   44.62
+  ],
+  "end_fade": [
+   51.2,
+   52.0
+  ]
+ },
+ "sfx": {
+  "gain_db": -3.0,
+  "duck_under_vo_db": -9.0
+ }
 }

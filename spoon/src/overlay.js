@@ -82,7 +82,16 @@ export class Overlay {
         g.rotate(L.rot);
         g.scale(L.s, L.s * (o.stretchY ?? 1));
         g.textAlign = 'center';
-        if (kind === 'shadow') {
+        if (kind === 'ghostR' || kind === 'ghostB') {
+          // RGB split: coloured copies peek out either side of the ink outline
+          const d = size * 0.05 * (1 + 0.35 * Math.sin(this.seed * 1.7 + L.lx));
+          g.translate(kind === 'ghostR' ? -d : d, kind === 'ghostR' ? -d * 0.25 : d * 0.25);
+          g.globalCompositeOperation = 'lighter';
+          g.lineWidth = stroke * 0.9;
+          g.strokeStyle = g.fillStyle = kind === 'ghostR' ? 'rgba(255,40,90,0.95)' : 'rgba(30,220,255,0.95)';
+          g.strokeText(L.ch, 0, 0);
+          g.fillText(L.ch, 0, 0);
+        } else if (kind === 'shadow') {
           g.translate(shadowOff, shadowOff);
           g.lineWidth = stroke;
           g.strokeStyle = INK;
@@ -107,10 +116,19 @@ export class Overlay {
         g.restore();
       }
     };
+    if (o.rgb) {
+      drawPass('ghostR');
+      drawPass('ghostB');
+    }
     if (shadowOff > 0) drawPass('shadow');
     drawPass('stroke');
     drawPass('fill');
     g.restore();
+  }
+
+  // Hand-lettered title (Caveat Brush), optionally RGB-split.
+  title(str, x, y, o = {}) {
+    this.word(str, x, y, { stroke: (o.size ?? 150) * 0.13, shadow: (o.size ?? 150) * 0.05, spacing: (o.size ?? 150) * 0.005, ...o, font: "'Caveat Brush'" });
   }
 
   // Caption box: yellow comic caption with mono text, slides/pops in.
@@ -179,7 +197,7 @@ export class Overlay {
     g.globalAlpha = 1 - clamp(out);
     g.translate(x, y);
     g.rotate(((o.rot ?? -4) * Math.PI) / 180 + this.j(7, 0.01));
-    g.font = `${size}px 'Permanent Marker'`;
+    g.font = `${Math.round(size * 1.25)}px 'Caveat Brush'`;
     g.textAlign = o.align ?? 'center';
     g.textBaseline = 'middle';
     // write-on reveal: clip a growing rect

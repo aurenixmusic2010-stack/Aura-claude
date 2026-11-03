@@ -123,6 +123,7 @@ Promise.all([
   document.fonts.load('150px Bangers'),
   document.fonts.load("50px 'Permanent Marker'"),
   document.fonts.load("700 40px 'Space Mono'"),
+  document.fonts.load("150px 'Caveat Brush'"),
 ]).then(() => {
   world.makeLabels();
   window.READY = true;

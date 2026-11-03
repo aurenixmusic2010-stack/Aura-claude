@@ -155,9 +155,9 @@ function shot1(t, lt, w) {
   o.speedLines(Math.PI / 2, K(lt, [[2.62, 0], [2.8, 1], [3.0, 1]]), { count: 50, alpha: 0.9 });
   const out = inv(2.6, 2.8, lt);
   const tsh = shake(t, 1.9, 14, 6, 30, 9);
-  o.word('THIS SPOON', 540 + tsh[0], 270 + tsh[1], { size: 178, p: inv(0.55, 0.88, lt), out, rot: -4, fill: CREAM, shadowCol: MAG });
-  o.word('BILLION-TON', 540 + tsh[1], 445 + tsh[0], { size: 150, p: inv(1.9, 2.12, lt), out, rot: 3, fill: YEL, shadowCol: MAG, stagger: 0.035 });
-  o.word('DENSITY', 540 - tsh[0], 592 + tsh[1], { size: 205, p: inv(1.97, 2.2, lt), out, rot: -2, fill: CREAM, fill2: YEL, shadowCol: CYAN, stagger: 0.05 });
+  o.title('This Spoon', 540 + tsh[0], 270 + tsh[1], { rgb: true, size: 205, p: inv(0.55, 0.88, lt), out, rot: -4, fill: CREAM, shadowCol: MAG });
+  o.title('Billion-Ton', 540 + tsh[1], 450 + tsh[0], { rgb: true, size: 178, p: inv(1.9, 2.12, lt), out, rot: 3, fill: YEL, shadowCol: MAG, stagger: 0.035 });
+  o.title('Density', 540 - tsh[0], 610 + tsh[1], { rgb: true, size: 240, p: inv(1.97, 2.2, lt), out, rot: -2, fill: CREAM, fill2: YEL, shadowCol: CYAN, stagger: 0.05 });
   o.scratches(reveal * 0.9);
 }
 
@@ -440,7 +440,7 @@ function shot2(t, lt, w) {
     o.word('KLANG!', kx, ky, { size: 118, p: inv(0.12, 0.28, lt), out: inv(0.8, 1.0, lt), rot: -8, fill: MAG, shadowCol: INK, stagger: 0.04 });
     const lp = inv(0.95, 1.25, lt);
     const lo = inv(2.6, 2.85, lt);
-    o.note(['ONE TEASPOON', 'OF NEUTRON STAR'], 735, 760, { size: 66, p: lp, out: lo, rot: -4, color: YEL });
+    o.note(['One teaspoon', 'of neutron star'], 735, 760, { size: 66, p: lp, out: lo, rot: -4, color: YEL });
     o.arrow(800, 850, bx + 20, by - 70, { p: inv(1.1, 1.4, lt), out: lo, bend: -0.25, color: YEL });
     const [hx, hy] = w.toScreen(a.helmetWorld([0, 1.0, 0]));
     o.word('HNNNGH!', clamp(hx, 320, 760), clamp(hy - 30, 300, 900), { size: 140, p: inv(2.3, 2.5, lt), out: inv(3.0, 3.12, lt), rot: -6, fill: YEL, shadowCol: MAG, wave: true });

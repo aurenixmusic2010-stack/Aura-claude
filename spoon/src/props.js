@@ -67,7 +67,7 @@ function labelTexture(lines, w = 1024, h = 256, size = 120, color = '#ffd23f') {
   c.width = w;
   c.height = h;
   const g = c.getContext('2d');
-  g.font = `${size}px 'Permanent Marker'`;
+  g.font = `${Math.round(size * 1.2)}px 'Caveat Brush'`;
   g.textAlign = 'center';
   g.textBaseline = 'middle';
   g.lineJoin = 'round';
@@ -417,7 +417,7 @@ export function buildProps(scene) {
   };
 
   P.makeLabels = () => {
-    P.floorMat.uniforms.uLabel.value = labelTexture(['IMAGINARY FLOOR', '(do not question it)'], 1024, 340, 118);
+    P.floorMat.uniforms.uLabel.value = labelTexture(['Imaginary Floor', '(do not question it)'], 1024, 340, 118);
   };
 
   P.resetProps = () => {

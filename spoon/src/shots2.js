@@ -172,15 +172,15 @@ export function shot3(t, lt, w) {
   // --- overlay
   const [cx, cy] = w.toScreen(SC);
   o.focusLines(cx, cy, K(lt, [[collapseStart + 0.2, 0], [born - 0.2, 1], [born + 0.3, 0]]), { inner: 160, color: CREAM, count: 110 });
-  o.word('IT STARTS AS', 540, 255, { size: 104, p: inv(0.5, 0.75, lt), out: inv(3.3, 3.45, lt), rot: -3 });
-  o.word('A GIANT STAR', 540, 385, { size: 152, p: inv(0.65, 0.95, lt), out: inv(3.3, 3.45, lt), rot: 2, fill: YEL, shadowCol: MAG });
+  o.title('It starts as', 540, 255, { size: 130, p: inv(0.5, 0.75, lt), out: inv(3.3, 3.45, lt), rot: -3 });
+  o.title('a giant star', 540, 385, { size: 178, p: inv(0.65, 0.95, lt), out: inv(3.3, 3.45, lt), rot: 2, fill: YEL, shadowCol: MAG });
   o.caption(["8–20× THE SUN'S MASS"], 540, 1310, { size: 52, p: inv(1.2, 1.4, lt), out: inv(3.3, 3.45, lt), rot: -2 });
   o.burst(540, 760, 250, { p: inv(boom + 0.1, boom + 0.25, lt), out: inv(5.6, 5.8, lt), seed: 2, fill: YEL, points: 18, sx: 1.4 });
   o.word('SUPERNOVA!', 540, 760, { size: 150, p: inv(boom + 0.12, boom + 0.32, lt), out: inv(5.6, 5.8, lt), rot: -6, fill: MAG, shadowCol: INK, stagger: 0.03 });
-  o.word('THE CORE', 540, 270, { size: 120, p: inv(collapseStart + 0.1, collapseStart + 0.3, lt), out: inv(born - 0.1, born, lt), rot: -3 });
-  o.word('COLLAPSES...', 540, 405, { size: 140, p: inv(collapseStart + 0.25, collapseStart + 0.5, lt), out: inv(born - 0.1, born, lt), rot: 2, fill: CYAN, shadowCol: MAG });
-  o.word('...INTO A', 540, 250, { size: 100, p: inv(born + 0.15, born + 0.35, lt), rot: -2 });
-  o.word('NEUTRON STAR', 540, 375, { size: 150, p: inv(born + 0.3, born + 0.55, lt), rot: 2, fill: CYAN, shadowCol: MAG });
+  o.title('The core', 540, 270, { size: 145, p: inv(collapseStart + 0.1, collapseStart + 0.3, lt), out: inv(born - 0.1, born, lt), rot: -3 });
+  o.title('collapses...', 540, 405, { size: 170, p: inv(collapseStart + 0.25, collapseStart + 0.5, lt), out: inv(born - 0.1, born, lt), rot: 2, fill: CYAN, shadowCol: MAG });
+  o.title('...into a', 540, 250, { size: 125, p: inv(born + 0.15, born + 0.35, lt), rot: -2 });
+  o.title('Neutron Star', 540, 378, { rgb: true, size: 182, p: inv(born + 0.3, born + 0.55, lt), rot: 2, fill: CYAN, shadowCol: MAG });
   o.caption(['~20 KM ACROSS', 'MORE MASS THAN THE SUN'], 540, 535, { size: 50, p: inv(8.1, 8.3, lt), rot: -2 });
   if (lt > born) {
     const [nx, ny] = w.toScreen(SC);
@@ -272,13 +272,13 @@ export function shot4(t, lt, w) {
     post.u.uGlitch.value = K(lt, [[5.0, 0], [5.25, 0.8, 'in']]);
     // squeeze emanata
     o.focusLines(540, 960, K(lt, [[2.3, 0], [2.6, 0.75], [3.9, 0.8], [4.2, 0]]), { inner: 520, color: CREAM, count: 80 });
-    o.word('ATOMS ARE', 540, 250, { size: 110, p: inv(0.45, 0.7, lt), out: inv(2.25, 2.4, lt), rot: -3 });
-    o.word('MOSTLY EMPTY SPACE', 540, 380, { size: 100, p: inv(0.6, 0.95, lt), out: inv(2.25, 2.4, lt), rot: 2, fill: CYAN, shadowCol: MAG, stagger: 0.03 });
+    o.title('Atoms are', 540, 250, { size: 135, p: inv(0.45, 0.7, lt), out: inv(2.25, 2.4, lt), rot: -3 });
+    o.title('mostly empty space', 540, 380, { size: 122, p: inv(0.6, 0.95, lt), out: inv(2.25, 2.4, lt), rot: 2, fill: CYAN, shadowCol: MAG, stagger: 0.03 });
     o.burst(540, 330, 190, { p: inv(2.4, 2.55, lt), out: inv(3.2, 3.35, lt), seed: 6, fill: MAG });
     o.word('SQUEEZE!', 540, 330, { size: 140, p: inv(2.42, 2.6, lt), out: inv(3.2, 3.35, lt), rot: -5, fill: YEL, shadowCol: INK });
     o.caption(['GRAVITY CRUSHES ELECTRONS', 'INTO PROTONS → NEUTRONS'], 540, 1310, { size: 46, p: inv(2.7, 2.9, lt), out: inv(4.9, 5.05, lt) });
-    o.word('NEUTRONS,', 540, 250, { size: 120, p: inv(3.6, 3.8, lt), out: inv(4.95, 5.1, lt), rot: -3 });
-    o.word('PACKED TIGHT', 540, 385, { size: 140, p: inv(3.75, 4.0, lt), out: inv(4.95, 5.1, lt), rot: 2, fill: YEL, shadowCol: MAG });
+    o.title('Neutrons,', 540, 250, { size: 145, p: inv(3.6, 3.8, lt), out: inv(4.95, 5.1, lt), rot: -3 });
+    o.title('packed tight', 540, 385, { size: 168, p: inv(3.75, 4.0, lt), out: inv(4.95, 5.1, lt), rot: 2, fill: YEL, shadowCol: MAG });
     o.scratches(0.8);
     return;
   }
@@ -435,22 +435,22 @@ export function shot4(t, lt, w) {
   const [sx, sy] = w.toScreen(spoonWorld(sp, V3(0, 0.1, 0.34)));
   const [mx, my] = w.toScreen(mountain.position.clone().add(V3(0, 5.6, 0)));
   const labelOut = inv(kaboom - 0.1, kaboom, L);
-  o.note('TEASPOON', clamp(sx + 40, 260, 820), sy - 250, { size: 64, p: inv(6.1, 6.35, L), out: Math.max(inv(8.6, 8.7, L), labelOut), rot: 4, color: YEL });
+  o.note('teaspoon', clamp(sx + 40, 260, 820), sy - 250, { size: 64, p: inv(6.1, 6.35, L), out: Math.max(inv(8.6, 8.7, L), labelOut), rot: 4, color: YEL });
   o.arrow(clamp(sx + 40, 260, 820), sy - 205, sx + 5, sy - 45, { p: inv(6.25, 6.45, L), out: Math.max(inv(8.6, 8.7, L), labelOut), bend: 0.2, color: YEL });
-  o.note('A MOUNTAIN', clamp(mx - 60, 240, 840), my + 470, { size: 64, p: inv(6.55, 6.8, L), out: Math.max(inv(8.6, 8.7, L), labelOut), rot: -4, color: CREAM });
+  o.note('a mountain', clamp(mx - 60, 240, 840), my + 470, { size: 64, p: inv(6.55, 6.8, L), out: Math.max(inv(8.6, 8.7, L), labelOut), rot: -4, color: CREAM });
   o.burst(clamp(mx, 300, 780), my + 330, 120, { p: inv(land, land + 0.12, L), out: inv(land + 0.6, land + 0.75, L), seed: 3, fill: CREAM });
   o.word('THOOM!', clamp(mx, 300, 780), my + 330, { size: 100, p: inv(land, land + 0.14, L), out: inv(land + 0.6, land + 0.75, L), rot: -7, fill: MAG, shadowCol: INK });
   const tOut = inv(kaboom - 0.05, kaboom + 0.1, L);
   const tsh = shake(t, 20 + crack, 16, 6, 28, 7);
-  o.word('ONE TEASPOON', 540 + tsh[0], 255 + tsh[1], { size: 132, p: inv(7.2, 7.45, L), out: tOut, rot: -3 });
-  o.word('~1 BILLION TONS', 540 - tsh[0], 400 + tsh[1], { size: 128, p: inv(7.55, 7.85, L), out: tOut, rot: 2, fill: YEL, shadowCol: MAG, stagger: 0.035 });
+  o.title('One Teaspoon', 540 + tsh[0], 255 + tsh[1], { size: 160, p: inv(7.2, 7.45, L), out: tOut, rot: -3 });
+  o.title('~1 Billion Tons', 540 - tsh[0], 400 + tsh[1], { rgb: true, size: 150, p: inv(7.55, 7.85, L), out: tOut, rot: 2, fill: YEL, shadowCol: MAG, stagger: 0.035 });
   o.caption(['≈ THE MASS OF A SMALL MOUNTAIN', '(A DENSITY COMPARISON.', ' NOT A SHIPPING PLAN.)'], 540, 1350, { size: 42, p: inv(8.0, 8.2, L), out: inv(kaboom - 0.1, kaboom, L), rot: -2 });
   const [px, py] = w.toScreen(pivotW);
   o.burst(px, py + 40, 140, { p: inv(crack, crack + 0.12, L), out: inv(crack + 0.6, crack + 0.75, L), seed: 8, fill: YEL });
   o.word('KRAK!', px, py + 40, { size: 120, p: inv(crack, crack + 0.14, L), out: inv(crack + 0.6, crack + 0.75, L), rot: 8, fill: MAG, shadowCol: INK });
   if (L > fixA) {
     const [ax, ay] = w.toScreen(a.helmetWorld([0, 1.0, 0]));
-    o.note('FIXED!', clamp(ax + 60, 260, 820), ay - 40, { size: 90, p: inv(fixed + 0.05, fixed + 0.25, L), out: inv(kaboom - 0.02, kaboom, L), rot: -8, color: YEL });
+    o.note('Fixed!', clamp(ax + 60, 260, 820), ay - 40, { size: 90, p: inv(fixed + 0.05, fixed + 0.25, L), out: inv(kaboom - 0.02, kaboom, L), rot: -8, color: YEL });
   }
   o.focusLines(540, 900, K(L, [[kaboom, 0], [kaboom + 0.05, 1], [kaboom + 0.9, 0]]), { inner: 300, color: CREAM, count: 130, width: 1.5 });
   o.burst(540, 860, 300, { p: inv(kaboom + 0.02, kaboom + 0.2, L), out: inv(11.5, 11.7, L), seed: 12, fill: YEL, points: 20, sx: 1.25 });
@@ -613,8 +613,8 @@ export function shot5(t, lt, w) {
     }
     g.restore();
   }
-  o.word('IT SPINS.', 540, 260, { size: 130, p: inv(0.25, 0.45, lt), out: inv(1.15, 1.25, lt), rot: -4 });
-  o.word('PULSAR', 540, 300, { size: 230, p: inv(1.25, 1.5, lt), out: inv(4.3, 4.45, lt), rot: -3, fill: CYAN, fill2: CREAM, shadowCol: MAG, stagger: 0.05 });
+  o.title('It spins.', 540, 260, { size: 160, p: inv(0.25, 0.45, lt), out: inv(1.15, 1.25, lt), rot: -4 });
+  o.title('Pulsar', 540, 300, { rgb: true, size: 265, p: inv(1.25, 1.5, lt), out: inv(4.3, 4.45, lt), rot: -3, fill: CYAN, fill2: CREAM, shadowCol: MAG, stagger: 0.05 });
   o.caption(['SOME SPIN 700+ TIMES', 'A SECOND. TWO BEAMS', 'SWEEP SPACE LIKE A', 'LIGHTHOUSE.'], 540, 1310, { size: 46, p: inv(1.9, 2.1, lt), out: inv(4.3, 4.45, lt) });
   if (a.root.visible && lt > 4.5 && lt < 9.05) {
     const [hx, hy] = w.toScreen(a.helmetWorld([0, 0, 0]));
@@ -649,7 +649,7 @@ export function shot6(t, lt, w) {
   ns.root.position.set(-1.1, 0.25, -0.6);
   ns.root.scale.setScalar(1.3);
   ns.magnetic.rotation.z = 1.15;
-  ns.update(t, t * 2.2, 1);
+  ns.update(t, t * 2.2, 1 + 0.9 * Math.sin(Math.PI * inv(4.75, 5.4, lt)));
   ns.setBeams(0.3);
   G.uRimColor.value.set('#bff6ff');
   G.uRimDir.value.set(-1, 0.2, -0.4).normalize();
@@ -678,7 +678,7 @@ export function shot6(t, lt, w) {
   const A = V3(0.9, -0.3, 0.3);
   const p = P();
   p.time = t;
-  const sneak = E.inOut(inv(8.25, freeze0, tc));
+  const sneak = E.inOut(inv(7.6, freeze0, tc));
   a.root.position.copy(A).add(V3(-0.35 * sneak, 0.12 * sneak + Math.sin(tc * 1.6) * 0.05, -0.2 * sneak));
   const faceCam = inv(grow0, grow0 + 0.3, lc) * (1 - inv(drop, drop + 0.3, lc));
   a.root.rotation.set(0, lerp(lerp(-0.35, -0.7, sneak), -0.05, faceCam), lerp(0, 0.12, sneak) * (1 - faceCam));
@@ -690,16 +690,16 @@ export function shot6(t, lt, w) {
   p.armBendL = 0.4;
   p.mouthCurve = 0.15;
   // VO: "So next time you think space is just a bunch of pretty stars,"
-  const stars = inv(1.3, 1.6, tc) * (1 - inv(3.15, 3.4, tc));
+  const stars = inv(0.9, 1.2, tc) * (1 - inv(2.7, 2.95, tc));
   // "remember." -> to camera, brows up
-  const remember = inv(3.35, 3.5, tc) * (1 - inv(4.1, 4.3, tc));
+  const remember = inv(2.9, 3.05, tc) * (1 - inv(3.55, 3.75, tc));
   // "Somewhere out there, there's a star so dense" -> glance at the tiny star
-  const atStar = inv(4.55, 4.75, tc) * (1 - inv(6.3, 6.5, tc));
+  const atStar = inv(3.7, 3.9, tc) * (1 - inv(5.4, 5.6, tc));
   // "that a teaspoon of it" -> looks at the spoon in his hand
-  const atSpoon = inv(6.45, 6.62, tc) * (1 - inv(7.65, 7.8, tc));
+  const atSpoon = inv(5.8, 5.97, tc) * (1 - inv(6.95, 7.1, tc));
   // "weighs more than a mountain." -> eyes HOME, sly grin, starts sneaking off
-  const atHome = inv(7.75, 7.92, tc);
-  const grin = inv(8.15, 8.4, tc);
+  const atHome = inv(7.0, 7.17, tc);
+  const grin = inv(7.5, 7.75, tc);
   const mixP = (k, vals) => {
     for (const key in vals) p[key] = lerp(p[key], vals[key], k);
   };
@@ -782,8 +782,8 @@ export function shot6(t, lt, w) {
   st.handR = [lerp(0.42, 0.26, td), lerp(0.05, 0.4, td), lerp(0.3, -0.18, td)];
   st.thumbDown = td;
   // the spoon glows on "teaspoon"
-  st.glow = 1.2 + 1.1 * Math.sin(Math.PI * inv(6.75, 7.35, tc));
-  st.heat = 0.25 * Math.sin(Math.PI * inv(6.75, 7.35, tc));
+  st.glow = 1.2 + 1.1 * Math.sin(Math.PI * inv(6.0, 6.6, tc));
+  st.heat = 0.25 * Math.sin(Math.PI * inv(6.0, 6.6, tc));
   if (lc > drop) {
     st.face = 1 - shrink;
     st.mouth = 0;
@@ -804,7 +804,7 @@ export function shot6(t, lt, w) {
     const close = [head.x + 0.35, head.y + 0.1, head.z + 2.9];
     const wide = [-0.4, 0.9, 10.5];
     const drift = E.inOut(inv(1.25, freeze0, lt));
-    const up = Math.sin(Math.PI * inv(1.2, 3.6, lt));
+    const up = Math.sin(Math.PI * inv(0.9, 3.2, lt));
     const wideP = wide.map((v, i) => lerp(v, hold[i], drift));
     const wideT = [-0.1, 0.4, 0].map((v, i) => lerp(v, holdT[i], drift));
     wideT[1] += 0.45 * up;
@@ -844,10 +844,10 @@ export function shot6(t, lt, w) {
   // --- overlay
   if (lt < panel0) {
     const [ex, ey] = w.toScreen(earth.position);
-    o.note('HOME', ex + 120, ey + 20, { size: 70, p: inv(7.8, 8.0, lt), out: inv(grow0, grow0 + 0.1, lt), rot: -6, color: YEL });
-    o.arrow(ex + 70, ey + 70, ex + 25, ey + 25, { p: inv(7.9, 8.05, lt), out: inv(grow0, grow0 + 0.1, lt), bend: 0.3, color: YEL, w: 6 });
+    o.note('Home', ex + 120, ey + 20, { size: 70, p: inv(7.05, 7.25, lt), out: inv(grow0, grow0 + 0.1, lt), rot: -6, color: YEL });
+    o.arrow(ex + 70, ey + 70, ex + 25, ey + 25, { p: inv(7.15, 7.3, lt), out: inv(grow0, grow0 + 0.1, lt), bend: 0.3, color: YEL, w: 6 });
     // "pretty stars": sparkles pop across the sky
-    const SP = [[170, 300, 2.15], [880, 250, 2.3], [640, 560, 2.42], [300, 690, 2.55], [930, 640, 2.66], [460, 210, 2.78]];
+    const SP = [[170, 300, 1.85], [880, 250, 2.0], [640, 560, 2.12], [300, 690, 2.25], [930, 640, 2.36], [460, 210, 2.48]];
     for (const [sx, sy, s0] of SP) {
       o.word('\u2726', sx, sy, { size: 92, p: inv(s0, s0 + 0.14, lt), out: inv(s0 + 0.75, s0 + 0.95, lt), rot: o.j(sx, 8), fill: CREAM, shadowCol: CYAN, stroke: 12, shadow: 5, font: 'sans-serif', stagger: 0 });
     }
@@ -886,8 +886,8 @@ export function shot6(t, lt, w) {
     g.translate(540, 950);
     g.scale(1 - collapse, 1 - collapse);
     g.translate(-540, -950);
-    o.word('SPACE IS', 540, 860, { size: 170, p: inv(text0, text0 + 0.25, lt), rot: -3 });
-    o.word('RIDICULOUS.', 540, 1040, { size: 182, p: inv(text0 + 0.2, text0 + 0.5, lt), rot: 2, fill: YEL, shadowCol: MAG, stagger: 0.04 });
+    o.title('Space is', 540, 860, { rgb: true, size: 205, p: inv(text0, text0 + 0.25, lt), rot: -3 });
+    o.title('ridiculous.', 540, 1045, { rgb: true, size: 205, p: inv(text0 + 0.2, text0 + 0.5, lt), rot: 2, fill: YEL, shadowCol: MAG, stagger: 0.04 });
     g.restore();
     if (collapse > 0.85) {
       const fade = 1 - inv(9.8 + D, 9.88 + D, lt);
