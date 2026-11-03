@@ -4,7 +4,7 @@ A 52-second vertical (1080×1920, 30 fps, H.264) animated short about neutron-st
 density. Picture only: music and voiceover get added in the edit. Exact hit timings
 for syncing are in [`BEAT-SHEET.md`](BEAT-SHEET.md).
 
-**Deliverable:** `out/the-spoon-that-could-break-earth.mp4`
+**Deliverable:** `out/the-spoon-that-could-break-earth.mp4` (H.264 High, 1080×1920, 30 fps, 52.0 s, 1560 frames, two-pass ~13.5 Mbps, no audio track)
 
 ## How it's made
 
@@ -55,7 +55,7 @@ fonts/              Bangers + Space Mono (SIL OFL 1.1), Permanent Marker (Apache
 ```sh
 cd spoon
 npm install                       # three.js
-node render.js --range 0:1560 --scale 1 --out frames     # ~45 min on 4 CPU cores
+node render.js --range 0:1560 --scale 1 --workers 2 --out frames   # ~17 min on 4 CPU cores
 tools/encode.sh frames out/the-spoon-that-could-break-earth.mp4
 ```
 
