@@ -50,3 +50,38 @@ it does not promise more than the video delivers.
 - Upload `episode_001_final.mp4` (captions burned in). Use
   `episode_001_clean.mp4` with `subtitles/subtitles.srt` if you want YouTube's
   own captions instead.
+
+## SEO copy (ready to paste)
+
+### YouTube Shorts
+
+**Title:** Why Wolverine's Adamantium Is Slowly Killing Him | Marvel Explained #shorts
+
+Alternates:
+- Wolverine Adamantium Poisoning Explained: The Metal Slowly Killing Him #shorts
+- Why Is Wolverine Dying in Logan? Adamantium Poisoning Explained #shorts
+
+**Description:**
+
+> Wolverine's adamantium skeleton makes him unbreakable. It's also slowly poisoning him.
+>
+> In Marvel Comics, Wolverine's healing factor is constantly repairing the damage his adamantium does. Marvel has tested both sides. When Magneto ripped the adamantium out in X-Men #25 (1993), his healing factor pushed him toward a feral state. When the X-Men lost their powers in X-Men #99 (2000), Logan showed advanced adamantium poisoning. It's the same slow decline we see in Logan (2017).
+>
+> Two powers, always at war. Take away either one and he's in trouble.
+>
+> Sources: X-Men #25 (1993), X-Men #99 (2000), Logan (2017, 20th Century Fox, not MCU), Marvel.com's history of Wolverine's adamantium skeleton.
+> Fan commentary. Characters and artwork © Marvel.
+>
+> #Wolverine #Marvel #XMen #Adamantium #Logan #MarvelComics #MarvelExplained #Shorts
+
+**Tags:** wolverine, adamantium, adamantium poisoning, wolverine healing factor, why is wolverine dying in logan, logan 2017 explained, wolverine explained, x-men 25 magneto adamantium, wolverine without adamantium, marvel explained, x-men lore, marvel comics
+
+### TikTok
+
+**Caption:** Wolverine's adamantium is slowly poisoning him 🧪 His healing factor never gets a day off. #wolverine #adamantium #xmen #marveltok #comicbooktok
+
+Alternate: Why isn't Wolverine dead? His own skeleton is poisoning him. #wolverine #marvel #xmen #logan #marveltok
+
+### Pinned comment (both)
+
+Which test was worse for Logan: losing the metal or losing the healing?
