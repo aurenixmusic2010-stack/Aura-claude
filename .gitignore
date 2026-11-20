@@ -3,3 +3,7 @@ __pycache__/
 *.pyc
 style/misfeed/fonts/
 style/misfeed/out/*.wav
+MARVEL_SHORTS_PROJECT/assets/characters/*/source.*
+MARVEL_SHORTS_PROJECT/assets/characters/*/cutout.png
+MARVEL_SHORTS_PROJECT/build/
+MARVEL_SHORTS_PROJECT/episodes/EPISODE_001/audio/mix_premaster.wav
