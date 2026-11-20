@@ -780,7 +780,7 @@ def s_context(P, f, t, dur):
     if t >= t_claws + 0.05:
         d = t - (t_claws + 0.05)
         clawk = -0.08 if d < 0.07 else min(1.12, 1.12 * ease_out((d - 0.07) / 0.12)) if d < 0.19 else 1 + 0.12 * math.exp(-d * 9) * math.cos(d * 60)
-    draw_skeleton(P, j, rig, f, metal_y=metal_y, claw=max(clawk, 0))
+    draw_skeleton(P, j, rig, f, metal_y=metal_y, claw=max(clawk, 0) * 1.3)
     if 0.02 < fill < 0.999 and not lock:
         x_l, x_r = cam(260, 0)[0], cam(820, 0)[0]
         P.lights.append((metal_y, 9, 0.85, x_l, x_r))
@@ -802,9 +802,14 @@ def s_context(P, f, t, dur):
         by = lerp(2350, 1925, rise) + (1210 - cy) * 0.35  # parallax: he is nearer the camera
         breathe = 0.012 * math.sin(T * 2 * math.pi / 2.6)
         lean = 0.05 * math.sin(T * 1.3) + (0.1 if t > t_claws else 0)
-        figure(P, "wolverine_classic", 250, by, 940, f, rot=-4 + 2 * math.sin(T * 1.1), lean=lean,
+        figure(P, "wolverine_classic", 250 - 640 * ease_io(pk), by, 940, f, rot=-4 + 2 * math.sin(T * 1.1), lean=lean,
                breathe=breathe, lift=0.6, clip_y=None)
-    stamp(P, "UNBREAKABLE", 100, 540, 300, t_bones - 0.02, t, seed=31, boil=f // 2)
+    if t >= t_bones - 0.02:   # knocked out of toner tape: reads on the page and on the film
+        d = (t - (t_bones - 0.02)) * FPS
+        um = text_mask("UNBREAKABLE", 100, 540, 300, scale=1.22 if d < 1 else 1.07 if d < 2 else 1.0,
+                       seed=31, boil=f // 2)
+        P.cover(poly_mask(torn_rect(215, 248, 865, 352, 0.8, 43, 3)), K=0.94, S=0)
+        P.cover(um, K=0.0, S=0.3)
     if t >= t_bones:
         word = "CLAWS." if t >= t_claws else "BONES."
         tin = t_claws if t >= t_claws else t_bones
